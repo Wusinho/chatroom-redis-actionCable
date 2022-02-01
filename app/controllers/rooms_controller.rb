@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @rooms = Room.all
@@ -10,13 +11,16 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(rooms_params)
-    redirect_to root_path
+    byebug
+    if @room.save
+      redirect_to root_path
+    end
   end
 
   private
 
   def rooms_params
-    params.require(:room).permit(:name)
+    params.require(:room).permit(:name).merge(user_id: current_user.id)
   end
 
 end

@@ -1,6 +1,6 @@
 <%= render 'form', room: Room.new %>
 
-<%= @rooms.each do |room| %>
+<% @rooms.each do |room| %>
 
   <div><%= room.name %></div>
-<%end%>
+<% end %>
