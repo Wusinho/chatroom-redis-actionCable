@@ -1,6 +1,11 @@
 <%= render 'form', room: Room.new %>
 
-<% @rooms.each do |room| %>
-
-  <div><%= room.name %></div>
-<% end %>
+   <% @rooms.each do |room| %>
+          <%= link_to room do %>
+            <div class="card">
+              <div class="card-body">
+                <%= room.name %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
