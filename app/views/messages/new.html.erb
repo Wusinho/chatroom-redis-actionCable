@@ -1,8 +1,14 @@
-<%= form_with(model: [@message.room, @message], remote: true) do |form| %>
- 
-  <div class="row">
-    <%= form.text_field :content, placeholder: 'Type your message here', class: 'col-9' %>
-    <%= form.submit 'Add Message', class: 'btn btn-primary col-3', id: 'chat-btn' %>
-  </div>
+<h1>New Messages</h1>
 
+<%= turbo_frame_tag 'new_message', target: '_top' do %>
+  <%= form_with(model: [ @message.room, @message ]) do |form| %>
+
+    <div class="field">
+      <%= form.text_field :content %>
+      <%= form.submit 'Send' %>
+    </div>
+
+  <% end %>
 <% end %>
+
+<%= link_to 'Back', @message.room %>

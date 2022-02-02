@@ -19,7 +19,8 @@ class RoomsController < ApplicationController
   end
 
   def show
-    # @message = Message.new
+    @chat_room = Room.includes(:messages).find_by(id: params[:id])
+    @message = Message.new
     # @rooms = Room.all
     # render 'index'
   end

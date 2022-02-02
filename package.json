@@ -2,6 +2,7 @@
   "name": "chat-room-devise-v2",
   "private": true,
   "dependencies": {
+    "@hotwired/turbo-rails": "^7.1.1",
     "@popperjs/core": "^2.11.2",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",

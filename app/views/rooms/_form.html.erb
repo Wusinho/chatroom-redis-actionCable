@@ -1,5 +1,5 @@
 
-<%= form_with model: room do |form| %>
+<%= form_with model: room, url: rooms_path, method: :post do |form| %>
   <%= form.text_field :name, class: 'form-control' %>
   <%= form.submit 'New Room', class: 'btn btn-primary mt-2' %>
 <% end %>
