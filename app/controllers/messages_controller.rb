@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
     # byebug
     if @message.save
       ActionCable.server.broadcast "room_channel_#{@message.room_id}", message: 'hello'
+      # ActionCable.server.broadcast "room_channel_", message: 'message from controller'
       # render(html: @message.html_safe)
       redirect_to @room
     end
