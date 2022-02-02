@@ -18,6 +18,8 @@ class RoomsController < ApplicationController
   end
 
   def show
+    # @rooms = Room.all
+    # render 'index'
   end
 
   private
