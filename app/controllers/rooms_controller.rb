@@ -12,17 +12,12 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(rooms_params)
-    # byebug
     if @room.save
       redirect_to root_path
     end
   end
 
   def show
-    @chat_room = Room.includes(:messages).find_by(id: params[:id])
-    @message = Message.new
-    # @rooms = Room.all
-    # render 'index'
   end
 
   private
