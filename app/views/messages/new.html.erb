@@ -1,0 +1,8 @@
+<%= form_with(model: [@message.room, @message], remote: true) do |form| %>
+ 
+  <div class="row">
+    <%= form.text_field :content, placeholder: 'Type your message here', class: 'col-9' %>
+    <%= form.submit 'Add Message', class: 'btn btn-primary col-3', id: 'chat-btn' %>
+  </div>
+
+<% end %>

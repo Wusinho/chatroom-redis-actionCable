@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'messages/create'
+  
   devise_for :users
   root 'rooms#index'
-  resources :rooms
+  resources :rooms do
+    resources :messages
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
