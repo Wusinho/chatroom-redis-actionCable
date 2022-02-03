@@ -22,15 +22,8 @@ class MessagesController < ApplicationController
       locals: { message: @message } 
     )
 
-    # ActionCable.server.broadcast "room_channel_#{@message.room_id}", message: @message
-    
     if @message.save
       ActionCable.server.broadcast "room_channel_#{@message.room_id}", mine: mine, theirs: theirs, message: @message
-      # ActionCable.server.broadcast "room_channel_#{@message.room_id}", message: @message
-      # ActionCable.server.broadcast "room_channel_", message: 'message from controller'
-      # render(html: @message.html_safe)
-      # SendMessageJob.perform_later(@message)
-      # byebug
       redirect_to @room
     end
   end
