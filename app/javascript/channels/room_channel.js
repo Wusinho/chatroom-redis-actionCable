@@ -24,16 +24,16 @@ document.addEventListener("turbolinks:load", (e) => {
 
         let html;
 
-        // if (user_id === data.message.user_id) {
-        //   html = data.mine;
-        // } else {
-        //   html = data.theirs;
-        // }
-        console.log(data);
-        console.log(user_id);
-        console.log(room_id);
-        // const messageContainer = document.getElementById("messages");
-        // messageContainer.innerHTML = messageContainer.innerHTML + html;
+        if (user_id === data.message.user_id) {
+          html = data.mine;
+        } else {
+          html = data.theirs;
+        }
+        // console.log(data);
+        // console.log(user_id);
+        // console.log(room_id);
+        const messageContainer = document.getElementById("messages");
+        messageContainer.innerHTML = messageContainer.innerHTML + html;
         // Called when there's incoming data on the websocket for this channel
       },
     }

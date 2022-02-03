@@ -11,9 +11,11 @@ class MessagesController < ApplicationController
     @message = @room.messages.new(messages_params)
     # byebug
     if @message.save
-      ActionCable.server.broadcast "room_channel_#{@message.room_id}", message: 'hello'
+      ActionCable.server.broadcast "room_channel_#{@message.room_id}", message: @message
       # ActionCable.server.broadcast "room_channel_", message: 'message from controller'
       # render(html: @message.html_safe)
+      # SendMessageJob.perform_later(@message)
+
       redirect_to @room
     end
 

@@ -1,3 +1,10 @@
-<p >
-  <%= message.author.email %> : <%= message.content %>
-</p>
+<div class="message <%= 'me' if message.author == current_user %>"  >
+  <div class="content-container ">
+    <p class='content m-0' >
+      <%= message.content %>
+    </p>
+    <div class='author'>
+      <%= message.author.email %>
+    </div>
+  </div>
+</div>
