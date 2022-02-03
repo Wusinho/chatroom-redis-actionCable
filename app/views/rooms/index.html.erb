@@ -2,10 +2,13 @@
 
    <% @rooms.each do |room| %>
         <div class="card" >
-          <div class="card-body" data-turbolinks="true" > 
+          <div class="card-body" > 
+          <%# <%= turbo_frame_tag room, data: { turbo: true } do %>
             
-          <%= link_to room.name , room_path(room), data: { turbolinks: true }, id: 'room' %>
+            <%= link_to room.name , room, data: { turbolinks: false }, class: 'room' %>
+          <%# <% end %>
 
           </div>
         </div>
     <% end %>
+

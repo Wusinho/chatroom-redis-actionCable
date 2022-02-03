@@ -1,16 +1,8 @@
 import consumer from "./consumer";
 
-// $("#room").on("click", function (e) {
-//   // location.reload();
-//   e.preventDefault();
-//   console.log("clicked on link");
-// });
-
-// $("#room").on("click", function (e) {
-document.addEventListener("turbolinks:load", () => {
+document.addEventListener("turbolinks:load", (e) => {
   const room_id = $("#room-id").attr("data-room-id");
 
-  console.log(consumer.subscriptions);
   // consumer.subscriptions.subscriptions.forEach((subscription) => {
   //   consumer.subscriptions.remove(subscription);
   // });
