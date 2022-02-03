@@ -18,6 +18,15 @@ class RoomsController < ApplicationController
   end
 
   def show
+    # redirect_to :back
+    # redirect_to :back
+    # if @room
+    #   respond_to do |format|
+    #     format.js {render inline: "location.reload();" }
+    #   end
+    # end
+    # redirect_back(fallback_location: @room.id)
+    # redirect_to @room
     # @rooms = Room.all
     # render 'index'
   end

@@ -39,3 +39,8 @@ document.addEventListener("turbolinks:load", () => {
     return new Popover(popoverTriggerEl);
   });
 });
+
+$("#room").on("click", function () {
+  // location.reload();
+  console.log("clicked on link");
+});
