@@ -10,15 +10,29 @@ class MessagesController < ApplicationController
   def create
     @message = @room.messages.new(messages_params)
     # byebug
+
+
+    mine = ApplicationController.render(
+      partial: 'messages/mine', 
+      locals: { message: @message } 
+    )
+
+    theirs = ApplicationController.render(
+      partial: 'messages/theirs', 
+      locals: { message: @message } 
+    )
+
+    # ActionCable.server.broadcast "room_channel_#{@message.room_id}", message: @message
+    
     if @message.save
-      ActionCable.server.broadcast "room_channel_#{@message.room_id}", message: @message
+      ActionCable.server.broadcast "room_channel_#{@message.room_id}", mine: mine, theirs: theirs, message: @message
+      # ActionCable.server.broadcast "room_channel_#{@message.room_id}", message: @message
       # ActionCable.server.broadcast "room_channel_", message: 'message from controller'
       # render(html: @message.html_safe)
       # SendMessageJob.perform_later(@message)
-
+      # byebug
       redirect_to @room
     end
-
   end
 
   private

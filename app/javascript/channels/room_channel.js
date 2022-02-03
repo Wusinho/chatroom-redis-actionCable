@@ -29,7 +29,9 @@ document.addEventListener("turbolinks:load", (e) => {
         } else {
           html = data.theirs;
         }
-        // console.log(data);
+
+        console.log(data);
+        console.log(html);
         // console.log(user_id);
         // console.log(room_id);
         const messageContainer = document.getElementById("messages");
