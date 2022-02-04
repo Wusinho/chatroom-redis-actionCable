@@ -9,3 +9,13 @@ $(document).on("click", "#submit", function (e) {
     $("#message_content").val("");
   }, 10);
 });
+
+// $("#submit").bind("ajax:complete", function (event, xhr, status) {
+//   $("#message_content").val("");
+// });
+
+// $("#submit").submit(function (e) {
+//   e.preventDefault();
+//   this.submit();
+//   $("#message_content").val("");
+// });
