@@ -3,10 +3,6 @@ import consumer from "./consumer";
 document.addEventListener("turbolinks:load", (e) => {
   const room_id = $("#room-id").attr("data-room-id");
 
-  // consumer.subscriptions.subscriptions.forEach((subscription) => {
-  //   consumer.subscriptions.remove(subscription);
-  // });
-
   consumer.subscriptions.create(
     { channel: "RoomChannel", room_id: room_id },
     {
