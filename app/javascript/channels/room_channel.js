@@ -20,7 +20,7 @@ document.addEventListener("turbolinks:load", (e) => {
       },
 
       received(data) {
-        const user_id = $("#user-id").attr("data-user-id");
+        const user_id = Number($("#user-id").attr("data-user-id"));
 
         let html;
 
@@ -30,13 +30,7 @@ document.addEventListener("turbolinks:load", (e) => {
           html = data.theirs;
         }
 
-        console.log(data);
-        console.log(html);
-        // console.log(user_id);
-        // console.log(room_id);
-        const messageContainer = document.getElementById("messages");
-        messageContainer.innerHTML = messageContainer.innerHTML + html;
-        // Called when there's incoming data on the websocket for this channel
+        $("#messages").append(html);
       },
     }
   );

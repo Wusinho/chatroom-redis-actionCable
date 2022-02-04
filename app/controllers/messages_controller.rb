@@ -24,7 +24,7 @@ class MessagesController < ApplicationController
 
     if @message.save
       ActionCable.server.broadcast "room_channel_#{@message.room_id}", mine: mine, theirs: theirs, message: @message
-      redirect_to @room
+      # redirect_to @room
     end
   end
 
